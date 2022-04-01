@@ -1,0 +1,11 @@
+@use 'fonts';
+
+$clr-dark: hsl(200, 19%, 6%);
+$clr-light: hsl(0, 0%, 100%);
+$clr-secondary: hsl(217, 100%, 32%);
+
+$br: 0.5em;
+
+$ff-primary: 'Poppins', sans-serif;
+
+$transition: transform 200ms cubic-bezier(0.21, 1.0, 0.81, 1.0);

@@ -1,0 +1,38 @@
+@use 'vars';
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+
+  background-color: vars.$clr-dark;
+  color: vars.$clr-light;
+
+  font-family: vars.$ff-primary;
+}
+
+img {
+  max-width: 100%;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}

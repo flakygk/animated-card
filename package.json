@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "serve": "parcel serve ./src/index.html"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "2.4.1",
+    "parcel": "^2.4.1"
+  }
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Animated Card</title>
+  <!-- My own stylings -->
+  <link rel="stylesheet" href="./styles/index.scss" />
+</head>
+
+<body>
+
+  <!-- Animated Card -->
+  <div class="game">
+
+    <div class="game__rank">2</div>
+
+    <!-- This part is visible from beginning, -->
+    <!-- and a bit changing on hover affect. -->
+    <div class="game__front">
+      <img class="game__thumbnail" src="./images/game_cover.jpg" alt="game_cover" />
+      <h3 class="game__name">Game name</h3>
+      <div class="game__stats">
+        <p class="game__viewers">863.3k</p>
+        <div class="game__streamers">
+          <img src="./images/streamer_luffy.jpeg" alt="luffy" />
+          <img src="./images/streamer_sanji.jpeg" alt="sanji" />
+          <img src="./images/streamer_zoro.jpeg" alt="zoro" />
+        </div>
+      </div>
+    </div>
+
+    <!-- This part is visible on hover affect. -->
+    <div class="game__back">
+      <div class="game__streaming-info">
+        <p class="game__stat">863.3k<span>Watching</span></p>
+        <p class="game__stat">32.4k<span>Streams</span></p>
+      </div>
+      <a class="game_btn">See More Streams</a>
+      <div class="game__streamers">
+        <div class="game__streamer">
+          <div class="icon">
+            <img src="./images/streamer_luffy.jpeg" alt="" />
+          </div>
+          <p class="name">Monkey D. Luffy</p>
+          <p class="number">72.3k</p>
+        </div>
+        <div class="game__streamer">
+          <div class="icon">
+            <img src="./images/streamer_sanji.jpeg" alt="" />
+          </div>
+          <p class="name">Vinsmoke Sanji</p>
+          <p class="number">15.8k</p>
+        </div>
+        <div class="game__streamer">
+          <div class="icon">
+            <img src="./images/streamer_zoro.jpeg" alt="" />
+          </div>
+          <p class="name">Roronoa Zoro</p>
+          <p class="number">54.1k</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- The background for hover affect. -->
+    <div class="game__bg">
+
+    </div>
+
+  </div>
+
+</body>
+
+</html>
