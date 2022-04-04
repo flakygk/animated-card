@@ -141,7 +141,7 @@
   font-weight: bold;
 
   padding: 0.5em 1.5em;
-  transition: transform 200ms ease;
+  transition: transform 100ms ease;
 
   &:hover {
     transform: scale(0.98);
@@ -242,11 +242,38 @@
   left: 0;
   z-index: -1;
   
-  background: hsl(210, 8%, 15%);
+  background-color: hsl(210, 8%, 15%);
+  background-image: url(../images/game_cover.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
   border-radius: vars.$br;
   
   transform: scale(0.3, 0.9);
   opacity: 0;
+  overflow-x: hidden;
+
+  .wave,
+  .reversed-wave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 400%;
+
+    background-image: url(../svgs/wave.svg);
+    background-position: bottom center, 50%, 50%;
+    background-repeat: no-repeat;
+
+    animation: wave 10s infinite linear alternate;
+  }
+
+  .reversed-wave {
+    top: 0;
+    background-image: url(../svgs/reversed-wave.svg);
+    background-position: top center, 50%, 50%;
+  }
 }
 
 // The hover affect itself
@@ -318,5 +345,16 @@
   100% {
     transform: scale(1.5);
     opacity: 0;
+  }
+}
+
+// Must be an outstanding wave 
+// animation by my owm performance 
+@keyframes wave {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }
