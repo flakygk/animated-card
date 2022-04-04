@@ -1,5 +1,6 @@
 @use 'vars';
 @use 'sass:math';
+// @use 'mixins';
 
 .game {
   position: relative;
@@ -66,6 +67,23 @@
   align-items: center;
 }
 
+// It's for font awesome icon
+.game__viewers {
+  display: flex;
+  align-items: center;
+
+  &::before {
+    content: "\f007";
+    display: inline-block;
+    margin-right: 0.25em;
+    font: var(--fa-font-solid);
+    font-weight: 900;
+    font-size: 0.875em;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
 // This section of css for game's back
 .game__back {
   position: absolute;
@@ -91,8 +109,8 @@
     justify-content: space-between;
 
     img {
-      width: 2rem;
-      height: 2rem;
+      width: auto;
+      height: 100%;
     }
   }
 }
@@ -114,7 +132,7 @@
   }
 }
 
-.game_btn {
+.game__btn {
   cursor: pointer;
   border: 0;
   background: vars.$clr-secondary;
@@ -123,6 +141,16 @@
   font-weight: bold;
 
   padding: 0.5em 1.5em;
+  transition: transform 200ms ease;
+
+  &:hover {
+    transform: scale(0.98);
+  }
+
+  &:focus {
+    outline: 3px solid vars.$clr-secondary;
+    outline-offset: 5px;
+  }
 }
 
 .game__streamer {
@@ -130,6 +158,78 @@
 
   .name {
     font-weight: bold;
+  }
+
+  // Start of the pulse affect
+  &:hover .icon {
+    transform: translateY(-20%);
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  .icon {
+    $local-clr: #f00;
+
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+    margin-inline: auto;
+    transition: transform ease 150ms;
+
+    &:hover {
+      transform: translateY(-20%) scale(1.02);
+    }
+
+    &::before,
+    &::after {
+      border-radius: 50%;
+      position: absolute;
+      content: '';
+      opacity: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      top: 0;
+    }
+
+    // Our play icon
+    &::before {
+      content: "\f04b";
+      display: grid;
+      place-items: center;
+      font: var(--fa-font-solid);
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+
+      background-color: $local-clr;
+      // This outline & offset remove 
+      // the ugliness caused by 
+      // ::before & ::after 
+      outline: 2px solid $local-clr;
+      outline-offset: -1px;
+      z-index: 10;
+      transition: 
+        opacity 75ms linear,
+        background-color 100ms linear
+      ;
+    }
+
+    // // I don't know why Kevin Powell 
+    // // does need this hover affect? 
+    // &:hover::before {
+    //   background-color: #e00;
+    //   outline-color: #e00;
+    // }
+
+    // Pulse itself
+    &:hover::after {
+      background-color: $local-clr;
+      z-index: 1;
+      animation: pulse 1.25s infinite;
+    }
+    // End of the pulse affect
   }
 }
 
@@ -150,7 +250,8 @@
 }
 
 // The hover affect itself
-.game:hover {
+.game:hover,
+.game:focus {
   .game__rank {
     transform: translate(150%, -97%);
   }
@@ -205,5 +306,17 @@
     text-align: center;
     opacity: 1;
     transform: scale(1.2);
+  }
+}
+
+// This animation belongs to icon's pulse affect
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
   }
 }
