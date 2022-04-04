@@ -6,6 +6,8 @@
 
 ### Use following command for debugging:
 
+> `yarn install`
+
 > `yarn run serve`
 
 > For more information also look in _**package.json**_
